@@ -35,3 +35,12 @@ jobs:
           local-dir: ./build/
           server-dir: ${{ secrets.FTP_UPLOAD_DIR }}
 
+      - name: Deploy files to helio.us
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.FTP_HELIO_SERVER}}
+          username: ${{ secrets.FTP_HELIO_USERNAME }}
+          password: ${{ secrets.FTP_HELIO_PASSWORD }}
+          local-dir: ./build/
+          server-dir: ${{ secrets.FTP_HELIO_UPLOAD_DIR }}
+
