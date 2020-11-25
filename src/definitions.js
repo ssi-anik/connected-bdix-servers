@@ -1,6 +1,6 @@
 export const definitions = {
-    "name": "BDIX Connected Server",
-    "namespace": "bdix-test-name",
+    "name": "Connected BDIX Servers",
+    "namespace": "connected-bdix-servers",
     "connection": {
         "alert": "secondary",
         "details": {
