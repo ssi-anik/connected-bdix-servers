@@ -7,7 +7,7 @@ import 'github-fork-ribbon-css/gh-fork-ribbon.css';
 import TopLoader from "react-top-loader";
 
 
-export default function App () {
+export default function App() {
     const [connection, setConnection] = useState(definitions.connection);
     const [lifetimeVisitor, setLifetimeVisitor] = useState(definitions.report.lifetime);
     const [todayVisitor, setTodayVisitor] = useState(definitions.report.today);
@@ -18,7 +18,7 @@ export default function App () {
     useEffect(() => {
         // get user connection information
         fetch('https://json.geoiplookup.io').then(res => res.json()).then(response => {
-            if ( !response.ip ) {
+            if (!response.ip) {
                 return;
             }
             setConnection(prevState => {
@@ -59,11 +59,11 @@ export default function App () {
         });
     }, []);
 
-    function pingServer (server) {
+    function pingServer(server) {
         let url = server['special'] ? server['path'] : server['host'] + server['path'];
 
         new Promise(resolve => {
-            switch ( server['type'] ) {
+            switch (server['type']) {
                 case 'image':
                 default:
                     imageResolver(url, resolve);
@@ -71,7 +71,7 @@ export default function App () {
         }).then(reachable => {
             setServerLookupCount(prevState => prevState - 1);
 
-            if ( !reachable ) {
+            if (!reachable) {
                 return;
             }
             setAvailableServers(prevState => {
@@ -83,13 +83,13 @@ export default function App () {
         });
     }
 
-    function serverTestHandler () {
+    function serverTestHandler() {
         setAvailableServers([]);
         setServerLookupCount(prevState => 0);
         let servers = serverList();
-        for ( let i = 0; i < servers.length; ++i ) {
+        for (let i = 0; i < servers.length; ++i) {
             const server = servers[i];
-            if ( server.disabled ) {
+            if (server.disabled) {
                 continue;
             }
 
@@ -98,27 +98,27 @@ export default function App () {
         }
     }
 
-    function disclaimerToggle () {
+    function disclaimerToggle() {
         setDisclaimerVisibility(prevState => !prevState);
     }
 
     return <div>
-        <TopLoader backgroundColor = "#eee6ff"
-                   show = {true}
-                   thickness = {serverLookupCount > 0 ? 2 : 0}
-                   fixed = {true}
-                   color = "#0000e4" />
+        <TopLoader backgroundColor="#eee6ff"
+                   show={true}
+                   thickness={serverLookupCount > 0 ? 2 : 0}
+                   fixed={true}
+                   color="#0000e4"/>
 
         <TopNav
-            name = {definitions.name} />
+            name={definitions.name}/>
 
-        <Container serverTestHandler = {serverTestHandler}
-                   disclaimerVisibility = {disclaimerVisibility}
-                   disclaimerVisibilityToggler = {disclaimerToggle}
-                   listedServers = {serverList()}
-                   availableServers = {availableServers}
-                   connection = {connection}
-                   lifetime = {lifetimeVisitor}
-                   today = {todayVisitor} />
+        <Container serverTestHandler={serverTestHandler}
+                   disclaimerVisibility={disclaimerVisibility}
+                   disclaimerVisibilityToggler={disclaimerToggle}
+                   listedServers={serverList()}
+                   availableServers={availableServers}
+                   connection={connection}
+                   lifetime={lifetimeVisitor}
+                   today={todayVisitor}/>
     </div>;
 }
