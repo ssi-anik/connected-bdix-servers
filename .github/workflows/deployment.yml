@@ -26,14 +26,14 @@ jobs:
       - name: Build project
         run: yarn run build
 
-#      - name: Deploy files to byethost
-#        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-#        with:
-#          server: ${{ secrets.FTP_SERVER}}
-#          username: ${{ secrets.FTP_USERNAME }}
-#          password: ${{ secrets.FTP_PASSWORD }}
-#          local-dir: ./build/
-#          server-dir: ${{ secrets.FTP_UPLOAD_DIR }}
+      - name: Deploy files to byethost
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.FTP_SERVER}}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./build/
+          server-dir: ${{ secrets.FTP_UPLOAD_DIR }}
 
       - name: Deploy files to helio.us
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
