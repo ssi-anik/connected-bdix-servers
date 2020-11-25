@@ -9165,6 +9165,11 @@ react-scripts@4.0.1:
   optionalDependencies:
     fsevents "^2.1.3"
 
+react-top-loader@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-top-loader/-/react-top-loader-1.0.0.tgz#291db74052032b12eb9d92d25f22ca3db1ed9805"
+  integrity sha512-ESP0ND2aqoCnmtXkalYpLUmDtagCB2DYGpRo3PscDgn/ozHexQWs8Mmjm6vVTBeCJzuU0g7JyW1iAforgZrWjw==
+
 react-transition-group@^4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"
