@@ -25,7 +25,7 @@ jobs:
 
       - name: Build project for helio
         with:
-          PUBLIC_URL: ${{ secret.FTP_HELIO_PUBLIC_URL }}
+          PUBLIC_URL: ${{ secrets.FTP_HELIO_PUBLIC_URL }}
         run: yarn run build
 
       - name: Deploy files to helio.us
