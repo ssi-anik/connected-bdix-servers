@@ -24,9 +24,8 @@ jobs:
         run: yarn install
 
       - name: Build project for helio
-        with:
-          PUBLIC_URL: ${{ secrets.FTP_HELIO_PUBLIC_URL }}
-        run: yarn run build
+        run: |
+          PUBLIC_URL=${{ secrets.FTP_HELIO_PUBLIC_URL }} yarn run build
 
       - name: Deploy files to helio.us
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
